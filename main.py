@@ -1,11 +1,14 @@
-import logging, sys, requests, json
+import logging, requests, json
 import time
 from winsound import SND_FILENAME, PlaySound
-from playsound import playsound
 
 # define urls
 atisUrl = 'https://api.ivao.aero/v2/tracker/whazzup/atis'
 
+def exit(statuscode):
+    PlaySound('DISCONNECTED.wav', SND_FILENAME)
+    PlaySound('DISCONNECTED.wav', SND_FILENAME)
+    exit(statuscode)
 
 def fetch_content(url):
     logging.info("Requesting Whazzup ATIS data")
